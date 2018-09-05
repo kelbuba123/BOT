@@ -1,0 +1,17 @@
+{
+  "name": "discordbotdersleri",
+  "version": "0.0.1",
+  "description": "",
+  "main": "bot.js",
+  "scripts": {
+    "test": "node bot.js"
+  },
+  "author": "Serhan",
+  "license": "ISC",
+  "dependencies": {
+    "aliases": "^1.0.0",
+    "chalk": "^2.4.1",
+    "discord.js": "^11.4.2",
+    "moment": "^2.22.2"
+  }
+}
