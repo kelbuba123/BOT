@@ -30,6 +30,9 @@ client.on('message', msg => {
     msg.channel.bulkDelete(100);
     msg.channel.sendMessage("100 adet mesaj silindi!");
   }
+   if (msg.content.toLowerCase() === prefix - 'gfxiste') {
+    msg.reply('Buyursunlar Efendim! Tasarımcılarımız En iyi Şekilde Hizmet Vermektedir ! #gfx-form u doldurarak aktif tasarımcılara başvur!');
+  }
   if (msg.content.toLowerCase() === prefix - 'reboot') {
     if (msg.author.id !== ayarlar.sahip) {
       msg.reply('Benim yapımcım değilsin!');
