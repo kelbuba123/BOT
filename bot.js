@@ -6,7 +6,7 @@ const fs = require('fs');
 const moment = require('moment');
 require('./util/eventLoader')(client);
 
-var prefix = -;
+var prefix = ayarlar.prefix;
 
 const log = message => {
   console.log(`[${moment().format('YYYY-MM-DD HH:mm:ss')}] ${message}`);
@@ -81,29 +81,26 @@ client.unload = command => {
 client.on('message', msg => {
   if (msg.content.toLowerCase() === 'gfxiste') {
 		if (!msg.guild.member(msg.author).hasPermission("BAN_MEMBERS")) {
-			msg.author.sendMessage('Selamlar! Gfx Talebiniz İçin https://docs.google.com/forms/d/e/1FAIpQLSeVMwxwb6Xr6Jmx-KJ5o0ECkpwxa63cwP2hxTkeUZSURUsZ9g/viewform?usp=sf_link'); 
+			msg.author.sendMessage('Selamlar! Gfx Talebiniz İçin https://docs.google.com/forms/d/e/1FAIpQLSeVMwxwb6Xr6Jmx-KJ5o0ECkpwxa63cwP2hxTkeUZSURUsZ9g/viewform?usp=sf_link');
 		} else {
 		msg.reply('Selamlar ! Gfx Talebiniz İçin https://docs.google.com/forms/d/e/1FAIpQLSeVMwxwb6Xr6Jmx-KJ5o0ECkpwxa63cwP2hxTkeUZSURUsZ9g/viewform?usp=sf_link');
 		}
 	}
 });
-
-client.on('message', msg => {
   if (msg.content.toLowerCase() === 'sa') {
     msg.reply('Aleyküm Selam Sayın Müşteri HoşGeldin!');
     }
-});
-
 client.on('message', msg => {
   if (msg.content === 'projesüresi') {
     msg.reply('Projeniz Hazır Olunca DM inizde Olacaktır ! Sabırlı Olmanız Yeterlidir.');
   }
-});
 
 client.on('message', msg => {
   if (msg.content === 'profgfx') {
     msg.reply('Profösyonel Gfx Talebinizi Aldık ! Revo ile iletişime geçiniz. Aksi Takdirde Talep Onaylanmayacaktır.');
-  }
+  })
+ }
+}
 });
 
 client.elevation = message => {
