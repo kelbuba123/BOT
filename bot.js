@@ -6,7 +6,7 @@ const fs = require('fs');
 const moment = require('moment');
 require('./util/eventLoader')(client);
 
-var prefix = ayarlar.prefix;
+var prefix = .;
 
 const log = message => {
   console.log(`[${moment().format('YYYY-MM-DD HH:mm:ss')}] ${message}`);
@@ -88,6 +88,30 @@ client.on('message', msg => {
 	}
 });
 
+client.on('message', msg => {
+  if (msg.content.toLowerCase() === 'gfxiste') {
+	msg.reply('Merhabalar ! Gfx Talebiniz içinhttps://docs.google.com/forms/d/e/1FAIpQLSeVMwxwb6Xr6Jmx-KJ5o0ECkpwxa63cwP2hxTkeUZSURUsZ9g/viewform?usp=sf_link  Doldurunuz !');
+		}
+	}
+});
+
+client.on('message', msg => {
+  if (msg.content.toLowerCase() === 'profgfx') {
+	  if (!msg.guild.member(msg.author).hasPermission("BAN_MEMBERS")) {
+			msg.author.sendMessage('Merhabalar ! Profösyonel Gfx Talebiniz Alınmıştır! Yakın Zamanda Bekleyin'); 
+		} else {
+	msg.reply('Merhabalar ! Profösyonel Gfx Talebiniz Alınmıştır! Yakın Zamanda Bekleyin');
+		}
+	}
+});
+
+client.on('message', msg => {
+  if (msg.content.toLowerCase() === 'projesuresi') {
+	msg.reply('Merhabalar ! Projeniz Hazırlanmaktadır ! Dmnize Mesaj Gelecektir !');
+		}
+	}
+});
+
 client.elevation = message => {
   if(!message.guild) {
 	return; }
@@ -108,4 +132,4 @@ client.on('error', e => {
   console.log(chalk.bgRed(e.replace(regToken, 'that was redacted')));
 });
 
-client.login(process.env.BOT_TOKEN);
+client.login(NDg2ODkwMzE3ODkxNzY0MjI0.DnFr2g.X_1g-yzdA4w9IFpBdxLnEKJ9QVw);
