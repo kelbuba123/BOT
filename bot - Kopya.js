@@ -16,24 +16,21 @@ client.on('message', msg => {
   if (!msg.content.startsWith(prefix)) {
 	  return;
   }
-  if (msg.content.toLowerCase() === prefix - 'ping') {
+  if (msg.content.toLowerCase() === prefix + 'ping') {
     msg.reply('Pong! **' + client.ping + '** ms');
   }
-  if (msg.content.toLowerCase() === prefix - 'sa') {
+  if (msg.content.toLowerCase() === prefix + 'sa') {
     msg.reply('Aleyküm selam!');
   }
-  if (msg.content.toLowerCase() === prefix - 'yaz') {
+  if (msg.content.toLowerCase() === prefix + 'yaz') {
     msg.delete();
     msg.channel.sendMessage(msg.content);
   }
-  if (msg.content.toLowerCase() === prefix - 'temizle') {
+  if (msg.content.toLowerCase() === prefix + 'temizle') {
     msg.channel.bulkDelete(100);
     msg.channel.sendMessage("100 adet mesaj silindi!");
   }
-   if (msg.content.toLowerCase() === prefix - 'gfxiste') {
-    msg.reply('Buyursunlar Efendim ! #gfx-form doldurarak iletişime geçin.');
-  }
-  if (msg.content.toLowerCase() === prefix - 'reboot') {
+  if (msg.content.toLowerCase() === prefix + 'reboot') {
     if (msg.author.id !== ayarlar.sahip) {
       msg.reply('Benim yapımcım değilsin!');
     } else {
@@ -45,4 +42,4 @@ client.on('message', msg => {
   }
 });
 
-client.login(NDg2ODkwMzE3ODkxNzY0MjI0.DnFr2g.X_1g-yzdA4w9IFpBdxLnEKJ9QVw);
+client.login(ayarlar.token);
