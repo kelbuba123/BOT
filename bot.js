@@ -6,7 +6,7 @@ const fs = require('fs');
 const moment = require('moment');
 require('./util/eventLoader')(client);
 
-var prefix = -;
+var prefix = ayarlar.prefix;
 
 const log = message => {
   console.log(`[${moment().format('YYYY-MM-DD HH:mm:ss')}] ${message}`);
