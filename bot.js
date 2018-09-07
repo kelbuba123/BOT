@@ -88,6 +88,12 @@ client.on('message', msg => {
 	}
 });
 
+client.on("message", (message) => {
+  if (message.content.startsWith("gfxiste")) {
+    message.channel.send("Tabii! İlk Olarak Destek Sistemine Hoşgeldin ! #gfx-form u doldurarak Başvurunuzu Online Şekilde Yap!");
+  }
+});
+
 client.elevation = message => {
   if(!message.guild) {
 	return; }
