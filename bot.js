@@ -90,7 +90,13 @@ client.on('message', msg => {
 
 client.on("message", (message) => {
   if (message.content.startsWith("gfxiste")) {
-    message.channel.send("Tabii! İlk Olarak Destek Sistemine Hoşgeldin ! #gfx-form u doldurarak Başvurunuzu Online Şekilde Yap!");
+    message.channel.send("Tabii! İlk Olarak Destek Sistemine Hoşgeldin ! https://docs.google.com/forms/d/e/1FAIpQLSeVMwxwb6Xr6Jmx-KJ5o0ECkpwxa63cwP2hxTkeUZSURUsZ9g/viewform?usp=sf_link u doldurarak Başvurunuzu Online Şekilde Yap!");
+  }
+});
+
+client.on("message", (message) => {
+  if (message.content.startsWith("progfx")) {
+    message.channel.send("Selamlar! progfx istediniz sanırım ?:) Tasarımcılarımızla İletişime Geçip Formu Doldurabilirsiniz. Gün İçinde Dm nizde olacaktır !");
   }
 });
 
