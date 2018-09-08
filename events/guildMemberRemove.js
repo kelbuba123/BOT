@@ -1,5 +1,6 @@
 module.exports = member => {
   let guild = member.guild;
-  member.send('dırırırı');
-  guild.member.defaultChannel.send(`${member.user.tag} gitti.`);
+  member.send('niye gittin?');
+  guild.defaultChannel.sendMessage(`${member.user.username} gitti.`);
 };
+
