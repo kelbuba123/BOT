@@ -1,6 +1,6 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
-var coolImages = require('cool-images')
+var coolImages = require('coolresim.js')
 
 exports.run = (client, message) => {
  message.channel.send({embed: {
