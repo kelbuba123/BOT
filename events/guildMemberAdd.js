@@ -1,7 +1,7 @@
 const fs = require("fs");
 const Discord = require("discord.js");
 const client = new Discord.Client();
-const config = require("./ayarlar.json");
+const config = require("BOT/ayarlar.json");
 
 client.login(ayarlar.token);
 
