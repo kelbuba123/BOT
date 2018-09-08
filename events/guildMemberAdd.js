@@ -1,33 +1,23 @@
-const fs = require("fs");
-const Discord = require("discord.js");
-const client = new Discord.Client();
-const config = require("./ayarlar.js");
+const getDefaultChannel = async (guild) => {
+  // get "original" default channel
+  if(guild.channels.has(guild.id))
+    return guild.channels.get(guild.id)
 
-client.login(ayarlar.token);
+  // Check for a "general" channel, which is often default chat
+  if(guild.channels.exists("name", "general"))
+    return guild.channels.find("name", "general");
+  // Now we get into the heavy stuff: first channel in order where the bot can speak
+  // hold on to your hats!
+  return guild.channels
+   .filter(c => c.type === "text" &&
+     c.permissionsFor(guild.client.user).has("SEND_MESSAGES"))
+   .sort((a, b) => a.position - b.position ||
+     Long.fromString(a.id).sub(Long.fromString(b.id)).toNumber())
+   .first();
+}
 
-client.on("ready", () => {
-  client.user.setGame(`on ${client.guilds.size} servers`);
-  console.log(`Ready to serve on ${client.guilds.size} servers, for ${client.users.size} users.`);
+// This is called as, for instance:
+client.on("guildMemberAdd", member => {
+  const channel = getDefaultChannel(member.guild);
+  channel.send(`HoşGeldin ! ${member} GfxYaptırmaya Başla ! Komutlarımız:gfxiste progfx`);
 });
-
-client.on("guildMemberAdd", (member) => {
-	console.log(`New User ${member.user.username} has joined ${member.guild.name}` );
-	member.guild.defaultChannel.send(`${member.user} Sunucumuza Katıldı ! Hoşgeldin Dostum`);
-});
-
-client.on("message", (message) => {
-
-	if (!message.content.startsWith(ayarlar.prefix) || message.author.bot) return;
-
-	if (message.content.startsWith(ayarlar.prefix + "medgfx")) {
-		message.channel.send("MEDİUM GFX TALEBİNİZ ALINMIŞTIR ! SERDARÜNLÜ İLE İLETİŞİME GEÇİNİZ.");
-	} else
-
-	if (message.content.startsWith(ayarlar.prefix + "foo")) {
-		message.channel.send("bar!");
-	}
-});
-
-  client.on("error", (e) => console.error(e));
-  client.on("warn", (e) => console.warn(e));
-  client.on("debug", (e) => console.info(e));
